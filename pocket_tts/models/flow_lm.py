@@ -85,8 +85,8 @@ class FlowLMModel(nn.Module):
         self.out_eos = nn.Linear(dim, 1, dtype=dtype)
 
     @property
-    def device(self) -> str:
-        return next(self.parameters()).device.type
+    def device(self) -> torch.device:
+        return next(self.parameters()).device
 
     def forward(
         self,

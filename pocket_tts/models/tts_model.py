@@ -64,8 +64,8 @@ class TTSModel(nn.Module):
         self.has_voice_cloning = True
 
     @property
-    def device(self) -> str:
-        return next(self.parameters()).device.type
+    def device(self) -> torch.device:
+        return next(self.parameters()).device
 
     @property
     def sample_rate(self) -> int:
@@ -655,7 +655,7 @@ class TTSModel(nn.Module):
         """
         if isinstance(audio_conditioning, str) and audio_conditioning in PREDEFINED_VOICES:
             # We get the audio conditioning directly from the safetensors file.
-            prompt = load_predefined_voice(audio_conditioning)
+            prompt = load_predefined_voice(audio_conditioning).to(self.device)
         else:
             if not self.has_voice_cloning and isinstance(audio_conditioning, (str, Path)):
                 raise ValueError(

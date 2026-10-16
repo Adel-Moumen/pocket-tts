@@ -406,6 +406,16 @@ uvx pocket-tts generate \
 ```
 </details>
 
+<details>
+<summary><a href="https://huggingface.co/hustfyb/PocketTTS-ZH-6L">Pocket TTS Chinese (中文)</a> by <a href="https://huggingface.co/hustfyb/">@hustfyb</a>, 6 layers</summary>
+
+```bash
+pip install pocket-tts soundfile wetext
+cd <本目录>
+python demo.py --prompt your_voice.wav --text "您的订单编号是20260918123456，退款368.5元预计三个工作日内到账。" --out out.wav
+```
+</details>
+
 Want your model here? Head to the [training Readme](https://github.com/kyutai-labs/pocket-tts/blob/main/training/README.md) to get started!
 
 ## Projects using Pocket TTS
